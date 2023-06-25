@@ -1,5 +1,9 @@
 # API-REST-HORSE-AND-REACT
 FULL STACK - HORSE - REACT
+
+Building full stack project using Horse(Delphi-back) and React(Client-Front);
+A complete system will be made with CRUD and Report;
+
 <h2>Front-End</h2>
 
 ![image](https://github.com/lucasdefreitasroberto/API-REST-HORSE-AND-REACT/assets/68399974/fc37fe0d-134c-4828-a76c-3aa7730a92f5)
