@@ -1,19 +1,30 @@
 # API-REST-HORSE-AND-REACT
+<h1>
 FULL STACK - HORSE - REACT
+</h1>
 
 <h2>
 Middleware Used in Projetct
+</h2>
 horse/json ✔️	
+<br>
 horse/basic-auth✔️
+<br>
 horse/cors✔️	 
+<br>
 horse/stream✔️	    
+<br>
 horse/jwt✔️	    
+<br>
 horse/exception✔️	   
+<br>
 horse/logger✔️	    
+<br>
 horse/compression✔️	    
   
 </h2>
-
+<br>
+<br>
 Building full stack project using Horse(Delphi-back) and React(Client-Front);
 A complete system will be made with CRUD and Report;
 
