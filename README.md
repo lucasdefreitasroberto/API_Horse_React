@@ -25,7 +25,7 @@ horse/compression✔️
 </h2>
 <br>
 <br>
-Building full stack project using Horse(Delphi-back) and React(Client-Front);
+Building full stack project using Delphi(Horse-back) and React(Client-Front);
 A complete system will be made with CRUD and Report;
 
 <h2>Front-End</h2>
