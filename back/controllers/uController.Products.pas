@@ -9,6 +9,7 @@ uses
 procedure Registry;
 
 implementation
+{$REGION ' DoListProducts'}
 
 procedure DoListProducts(Req: THorseRequest; Res: THorseResponse; Next: TProc);
 var
@@ -21,6 +22,9 @@ begin
     LService.Free;
   end;
 end;
+{$ENDREGION}
+
+{$REGION ' DoGetProduct'}
 
 procedure DoGetProduct(Req: THorseRequest; Res: THorseResponse; Next: TProc);
 var
@@ -39,6 +43,9 @@ begin
     LService.Free;
   end;
 end;
+{$ENDREGION}
+
+{$REGION ' DoPostProduct'}
 
 procedure DoPostProduct(Req: THorseRequest; Res: THorseResponse; Next: TProc);
 var
@@ -52,6 +59,9 @@ begin
   end;
 end;
 
+{$ENDREGION}
+
+{$REGION ' DoPutProduct'}
 procedure DoPutProduct(Req: THorseRequest; Res: THorseResponse; Next: TProc);
 var
   id: Int64;
@@ -69,6 +79,9 @@ begin
     LService.Free;
   end;
 end;
+{$ENDREGION}
+
+{$REGION ' DoDeleteProduct'}
 
 procedure DoDeleteProduct(Req: THorseRequest; Res: THorseResponse; Next: TProc);
 var
@@ -88,15 +101,18 @@ begin
     LService.Free;
   end;
 end;
+{$ENDREGION}
+
+{$REGION ' Registry'}
 
 procedure Registry;
 begin
-  THorse.Get('/products',        DoListProducts);
-  THorse.Get('/products/:id',    DoGetProduct);
-  THorse.Post('/products',       DoPostProduct);
-  THorse.Put('/products/:id',    DoPutProduct);
+  THorse.Get('/products', DoListProducts);
+  THorse.Get('/products/:id', DoGetProduct);
+  THorse.Post('/products', DoPostProduct);
+  THorse.Put('/products/:id', DoPutProduct);
   THorse.Delete('/products/:id', DoDeleteProduct);
 end;
-
+{$ENDREGION}
 end.
 

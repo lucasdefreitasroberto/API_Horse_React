@@ -3,12 +3,28 @@ unit uDMConexao;
 interface
 
 uses
-  System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
-  FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
-  FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.FB,
-  FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait, FireDAC.Phys.IBBase, Data.DB,
-  FireDAC.Comp.Client, Vcl.Dialogs, FireDAC.Stan.Param, FireDAC.DatS,
-  FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet;
+  System.SysUtils,
+  System.Classes,
+  FireDAC.Stan.Intf,
+  FireDAC.Stan.Option,
+  FireDAC.Stan.Error,
+  FireDAC.UI.Intf,
+  FireDAC.Phys.Intf,
+  FireDAC.Stan.Def,
+  FireDAC.Stan.Pool,
+  FireDAC.Stan.Async,
+  FireDAC.Phys,
+  FireDAC.Phys.FB,
+  FireDAC.Phys.FBDef,
+  FireDAC.VCLUI.Wait,
+  FireDAC.Phys.IBBase,
+  Data.DB,
+  FireDAC.Comp.Client,
+  Vcl.Dialogs,
+  FireDAC.Stan.Param,
+  FireDAC.DatS,
+  FireDAC.DApt.Intf,
+  FireDAC.DApt, FireDAC.Comp.DataSet;
 
 type
   TDMConexao = class(TDataModule)
@@ -39,12 +55,14 @@ uses
 {$R *.dfm}
 
 { TDMConexao }
-
+{$REGION ' constructor'}
 constructor TDMConexao.Create;
 begin
   inherited Create(nil);
 end;
+{$ENDREGION}
 
+{$REGION ' DMCreate'}
 procedure TDMConexao.DataModuleCreate(Sender: TObject);
 var
   auxError: string;
@@ -82,6 +100,9 @@ begin
 
   end;
 end;
+{$ENDREGION}
+
+{$REGION ' Functions'}
 
 procedure TDMConexao.ExecuteCommand(SQL: string; NomeCampo: Integer; NomeParametroSQL: string);
 begin
@@ -105,6 +126,7 @@ begin
   FDQuery.Open;
   result := FDQuery.Fields[0].AsString;
 end;
+{$ENDREGION}
 
 end.
 

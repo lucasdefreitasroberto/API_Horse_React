@@ -3,12 +3,30 @@ unit services.product;
 interface
 
 uses
-  System.SysUtils, System.Classes, uDMConexao, FireDAC.Stan.Intf,
-  FireDAC.Stan.Option, FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf,
-  FireDAC.Stan.Def, FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys,
-  FireDAC.Phys.FB, FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait, FireDAC.Phys.IBBase,
-  Data.DB, FireDAC.Comp.Client, FireDAC.Stan.Param, FireDAC.DatS,
-  FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet, System.JSON,
+  System.SysUtils,
+  System.Classes,
+  uDMConexao,
+  FireDAC.Stan.Intf,
+  FireDAC.Stan.Option,
+  FireDAC.Stan.Error,
+  FireDAC.UI.Intf,
+  FireDAC.Phys.Intf,
+  FireDAC.Stan.Def,
+  FireDAC.Stan.Pool,
+  FireDAC.Stan.Async,
+  FireDAC.Phys,
+  FireDAC.Phys.FB,
+  FireDAC.Phys.FBDef,
+  FireDAC.VCLUI.Wait,
+  FireDAC.Phys.IBBase,
+  Data.DB,
+  FireDAC.Comp.Client,
+  FireDAC.Stan.Param,
+  FireDAC.DatS,
+  FireDAC.DApt.Intf,
+  FireDAC.DApt,
+  FireDAC.Comp.DataSet,
+  System.JSON,
   DataSet.Serialize;
 
 type
@@ -32,12 +50,17 @@ implementation
 
 { TServiceProduct }
 
+{$REGION ' Delete'}
+
 function TServicesProduct.Delete(const AId: Int64): Boolean;
 begin
   FDQuery.Delete;
   Result := FDQuery.IsEmpty;
 end;
 
+{$ENDREGION}
+
+{$REGION ' GetById'}
 function TServicesProduct.GetById(const ID: Int64): TFDQuery;
 begin
   Result := FDQuery;
@@ -45,6 +68,9 @@ begin
   FDQuery.ParamByName('id').AsLargeInt := ID;
   FDQuery.Open();
 end;
+{$ENDREGION}
+
+{$REGION ' Insert'}
 
 function TServicesProduct.Insert(const AProduct: TJSONObject): TFDQuery;
 var
@@ -61,6 +87,9 @@ begin
   AProduct.AddPair('id', id.ToString);
   FDQuery.LoadFromJSON(AProduct, False);
 end;
+{$ENDREGION}
+
+{$REGION ' ListAll'}
 
 function TServicesProduct.ListAll: TFDQuery;
 begin
@@ -68,12 +97,16 @@ begin
   FDQuery.SQL.Add('order by ID');
   FDQuery.Open();
 end;
+{$ENDREGION}
+
+{$REGION ' Insert'}
 
 function TServicesProduct.Update(const AProduct: TJSONObject): TFDQuery;
 begin
   Result := FDQuery;
   FDQuery.MergeFromJSONObject(AProduct, False);
 end;
+ {$ENDREGION}
 
 end.
 
