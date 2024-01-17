@@ -38,4 +38,5 @@ A complete system will be made with CRUD and Report;
 
 <h2>Back-End</h2>
 
-![image](https://github.com/lucasdefreitasroberto/API-REST-HORSE-AND-REACT/assets/68399974/5638d55d-8f4a-4af6-9299-07c689b383e7)
+![image](https://github.com/lucasdefreitasroberto/api-with-horse-and-react/assets/68399974/136ae2eb-bd98-40c4-8561-fff9ef439f53)
+
