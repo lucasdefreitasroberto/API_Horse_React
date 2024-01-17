@@ -1,0 +1,67 @@
+unit uController.Products;
+
+interface
+
+uses
+  Horse,
+  Services.Product,
+  DataSet.Serialize,
+  System.JSON,
+  System.SysUtils,
+  Data.DB;
+
+procedure Registry;
+
+implementation
+
+procedure DoListProducts(Req: THorseRequest; Res: THorseResponse; Next: TProc);
+var
+  LService: TServicesProduct;
+begin
+  LService := TServicesProduct.Create;
+  try
+    Res.Send<TJSONArray>(LService.ListAll.ToJSONArray()).Status(THTTPStatus.OK);
+  finally
+    LService.Free;
+  end;
+end;
+
+procedure DoGetProduct(Req: THorseRequest; Res: THorseResponse; Next: TProc);
+var
+  LService: TServicesProduct;
+  id: Int64;
+begin
+  LService := TServicesProduct.Create;
+  try
+    id := Req.Params['id'].ToInt64;
+
+    if LService.GetById(id).IsEmpty then
+      raise EHorseException.New.Error('Not found').Status(THTTPStatus.NotFound);
+
+    Res.Send<TJSONObject>(LService.qryProducts.ToJSONObject());
+  finally
+    LService.Free;
+  end;
+end;
+
+procedure DoPostProduct(Req: THorseRequest; Res: THorseResponse; Next: TProc);
+var
+  LService: TServicesProduct;
+begin
+  LService := TServicesProduct.Create;
+  try
+    Res.Send<TJSONObject>(LService.Insert(Req.Body<TJSONObject>).ToJSONObject()).Status(THTTPStatus.Created);
+  finally
+    LService.Free;
+  end;
+end;
+
+procedure Registry;
+begin
+  THorse.Get('/products',     DoListProducts);
+  THorse.Get('/products/:id', DoGetProduct);
+  THorse.Post('/products',    DoPostProduct);
+end;
+
+end.
+

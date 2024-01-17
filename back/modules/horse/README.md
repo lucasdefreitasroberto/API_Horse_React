@@ -53,7 +53,7 @@ end.
 
 ## 🧬 Official Middlewares
 
-For a more _maintainable_ middleware _ecosystem_, we've put official [middlewares](https://docs.gofiber.io/middleware) into separate repositories:
+For a more _maintainable_ middleware _ecosystem_, we've put official middlewares into separate repositories:
 
 | Middleware | Delphi | Lazarus |
 | ------------------------------------------------------------------- | -------------------- | --------------------------- |
@@ -91,7 +91,7 @@ This is a list of middlewares that are created by the Horse community, please cr
 |  [andre-djsystem/horse-manipulate-request](https://github.com/andre-djsystem/horse-manipulate-request)     | &nbsp;&nbsp;&nbsp;✔️ | &nbsp;&nbsp;&nbsp;&nbsp;✔️ |
 |  [andre-djsystem/horse-manipulate-response](https://github.com/andre-djsystem/horse-manipulate-response)   | &nbsp;&nbsp;&nbsp;✔️ | &nbsp;&nbsp;&nbsp;&nbsp;✔️ |
 |  [antoniojmsjr/Horse-IPGeoLocation](https://github.com/antoniojmsjr/Horse-IPGeoLocation)                   | &nbsp;&nbsp;&nbsp;✔️ | &nbsp;&nbsp;&nbsp;&nbsp;❌ |
-|  [isaquepinheiro/horse-jsonbr](https://github.com/isaquepinheiro/horse-jsonbr)                             | &nbsp;&nbsp;&nbsp;✔️ | &nbsp;&nbsp;&nbsp;&nbsp;❌ |
+|  [isaquepinheiro/horse-jsonbr](https://github.com/HashLoad/JSONBr)                                         | &nbsp;&nbsp;&nbsp;✔️ | &nbsp;&nbsp;&nbsp;&nbsp;❌ |
 |  [IagooCesaar/Horse-JsonInterceptor](https://github.com/IagooCesaar/Horse-JsonInterceptor)                 | &nbsp;&nbsp;&nbsp;✔️ | &nbsp;&nbsp;&nbsp;&nbsp;❌ |
 |  [dliocode/horse-datalogger](https://github.com/dliocode/horse-datalogger)                                 | &nbsp;&nbsp;&nbsp;✔️ | &nbsp;&nbsp;&nbsp;&nbsp;❌ |
 |  [marcobreveglieri/horse-prometheus-metrics](https://github.com/marcobreveglieri/horse-prometheus-metrics) | &nbsp;&nbsp;&nbsp;✔️ | &nbsp;&nbsp;&nbsp;&nbsp;❌ |

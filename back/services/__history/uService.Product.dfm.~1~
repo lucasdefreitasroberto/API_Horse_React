@@ -1,0 +1,31 @@
+inherited ServiceProduct: TServiceProduct
+  Height = 211
+  Width = 134
+  inherited con: TFDConnection
+    Connected = True
+  end
+  object qryProducts: TFDQuery
+    Connection = con
+    SQL.Strings = (
+      'select id, name, price from products')
+    Left = 48
+    Top = 128
+    object qryProductsID: TLargeintField
+      FieldName = 'ID'
+      Origin = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object qryProductsNAME: TStringField
+      FieldName = 'NAME'
+      Origin = 'NAME'
+      Size = 250
+    end
+    object qryProductsPRICE: TFMTBCDField
+      FieldName = 'PRICE'
+      Origin = 'PRICE'
+      Precision = 18
+      Size = 2
+    end
+  end
+end

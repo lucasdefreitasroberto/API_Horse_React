@@ -1,21 +1,22 @@
 object DMConexao: TDMConexao
   OldCreateOrder = False
-  OnCreate = DataModuleCreate
-  Height = 173
-  Width = 299
+  Height = 154
+  Width = 153
   object con: TFDConnection
     Params.Strings = (
+      
+        'Database=C:\Users\HAHA\Desktop\Horse\crud-angular-horse-master\c' +
+        'rud-angular-horse-master\backend\db\PRODUCTS.FDB'
       'User_Name=sysdba'
       'Password=masterkey'
-      'Database=C:\Users\HAHA\Desktop\back\DADOS\PRODUTO.FDB'
       'DriverID=FB')
     LoginPrompt = False
-    Left = 96
-    Top = 64
+    Left = 48
+    Top = 16
   end
-  object FQuery: TFDQuery
-    Connection = con
-    Left = 152
-    Top = 64
+  object fdphysfbdrvrlnk: TFDPhysFBDriverLink
+    VendorLib = 'C:\Program Files (x86)\Firebird\Firebird_2_5\bin\fbclient.dll'
+    Left = 48
+    Top = 72
   end
 end

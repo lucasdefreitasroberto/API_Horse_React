@@ -1,0 +1,41 @@
+inherited ServicesProduct: TServicesProduct
+  OldCreateOrder = True
+  Height = 188
+  inherited con: TFDConnection
+    Params.Strings = (
+      
+        'Database=C:\Users\HAHA\Desktop\CRUD-Horse\backend\dados\PRODUCTS' +
+        '.FDB'
+      'User_Name=sysdba'
+      'Password=masterkey'
+      'DriverID=FB')
+    Connected = True
+  end
+  inherited FDPhysFBDriverLink: TFDPhysFBDriverLink
+    VendorLib = ''
+  end
+  object qryProducts: TFDQuery
+    Connection = con
+    SQL.Strings = (
+      'select id, name, price from product ')
+    Left = 48
+    Top = 132
+    object qryProductsID: TLargeintField
+      FieldName = 'ID'
+      Origin = 'ID'
+      ProviderFlags = [pfInUpdate, pfInWhere, pfInKey]
+      Required = True
+    end
+    object qryProductsNAME: TStringField
+      FieldName = 'NAME'
+      Origin = 'NAME'
+      Size = 250
+    end
+    object qryProductsPRICE: TFMTBCDField
+      FieldName = 'PRICE'
+      Origin = 'PRICE'
+      Precision = 18
+      Size = 2
+    end
+  end
+end

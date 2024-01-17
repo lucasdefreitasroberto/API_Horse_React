@@ -1,4 +1,4 @@
-unit uDmConexao;
+unit uDMConexao;
 
 interface
 
@@ -6,22 +6,24 @@ uses
   System.SysUtils, System.Classes, FireDAC.Stan.Intf, FireDAC.Stan.Option,
   FireDAC.Stan.Error, FireDAC.UI.Intf, FireDAC.Phys.Intf, FireDAC.Stan.Def,
   FireDAC.Stan.Pool, FireDAC.Stan.Async, FireDAC.Phys, FireDAC.Phys.FB,
-  FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait, FireDAC.Stan.Param, FireDAC.DatS,
-  FireDAC.DApt.Intf, FireDAC.DApt, Data.DB, FireDAC.Comp.DataSet,
-  FireDAC.Comp.Client, System.JSON, DataSetConverter4D, DataSetConverter4D.Impl,
-  DataSetConverter4D.Util, DataSetConverter4D.Helper;
+  FireDAC.Phys.FBDef, FireDAC.VCLUI.Wait, FireDAC.Phys.IBBase, Data.DB,
+  FireDAC.Comp.Client, Vcl.Dialogs, FireDAC.Stan.Param, FireDAC.DatS,
+  FireDAC.DApt.Intf, FireDAC.DApt, FireDAC.Comp.DataSet;
 
 type
   TDMConexao = class(TDataModule)
     con: TFDConnection;
-    FQuery: TFDQuery;
+    FDPhysFBDriverLink: TFDPhysFBDriverLink;
+    FDQuery: TFDQuery;
     procedure DataModuleCreate(Sender: TObject);
   private
     { Private declarations }
   public
-    { Public declarations }
-    function ExecuteReaderJSONObject(SQL: string): TJSONObject;
-    function ExecuteReaderJSONArray(SQL: string): TJSONArray;
+    function ExecuteScalar(SQL: string): Variant;
+    function ExecuteReader(SQL: string): OleVariant;
+    procedure ExecuteCommand(SQL: string; NomeCampo: Integer; NomeParametroSQL: string);
+
+    constructor Create; reintroduce;
   end;
 
 var
@@ -31,42 +33,77 @@ implementation
 
 {%CLASSGROUP 'Vcl.Controls.TControl'}
 
+uses
+  backend;
+
 {$R *.dfm}
 
-procedure TDMConexao.DataModuleCreate(Sender: TObject);
+{ TDMConexao }
+
+constructor TDMConexao.Create;
 begin
-  with con do
-  begin
-    Connected := False;
-    DriverName := 'FB';
-    LoginPrompt := False;
-    Params.UserName := 'SYSDBA';
-    Params.Password := 'masterkey';
-    Params.Database := 'C:\Users\HAHA\Desktop\back\DADOS\PRODUTO.FDB';
-  end;
+  inherited Create(nil);
+end;
+
+procedure TDMConexao.DataModuleCreate(Sender: TObject);
+var
+  auxError: string;
+begin
+
+  const driver = 'FB';
+  const database = 'C:\Users\HAHA\Desktop\CRUD-Horse\backend\dados\PRODUCTS.FDB';
+  const password = 'masterkey';
+  const user = 'SYSDBA';
+  const protocol = 'LOCAL';
+  const server = '';
+  const port = 3050;
+
+  if con.Connected then
+    con.Close;
+  con.Params.Clear;
 
   try
-    FQuery.Connection := con;
-    con.Open;
+
+    con.Params.Add('DriverID=' + driver);
+    con.Params.Add('Database=' + database);
+    con.Params.Add('Password=' + password);
+    con.Params.Add('User_Name=' + user);
+    con.Params.Add('Protocol=' + protocol);
+    con.Params.Add('Server=' + server);
+    con.Params.Add('Port=' + System.SysUtils.IntToStr(port));
+
   except
-    on E: Exception do
-      raise Exception.Create('Erro ao Conectar na Base de Dados' + #13 + E.Message);
+
+    on E: exception do
+    begin
+      auxError := Copy(E.Message, 20, 500);
+      MessageDlg('Erro ao tentar se conectar com o banco de dados.' + #13 + #13 + 'Motivo:' + #13 + #13 + '' + auxError, TMsgDlgType.mtWarning, [TMsgDlgBtn.mbOK], 0);
+    end;
+
   end;
-
 end;
 
-function TDMConexao.ExecuteReaderJSONArray(SQL: string): TJSONArray;
+procedure TDMConexao.ExecuteCommand(SQL: string; NomeCampo: Integer; NomeParametroSQL: string);
 begin
-  FQuery.Close;
-  FQuery.Open(SQL);
-  Result := FQuery.AsJSONArray;
+//
 end;
 
-function TDMConexao.ExecuteReaderJSONObject(SQL: string): TJSONObject;
+function TDMConexao.ExecuteReader(SQL: string): OleVariant;
 begin
-  FQuery.Close;
-  FQuery.Open(SQL);
-  Result := FQuery.AsJSONObject;
+  FDQuery.SQL.Text := SQL;
+
+  FDQuery.Open;
+  result := FDQuery.Data;
+end;
+
+function TDMConexao.ExecuteScalar(SQL: string): Variant;
+begin
+  FDQuery.Close;
+  FDQuery.SQL.Clear;
+  FDQuery.SQL.Add(SQL);
+
+  FDQuery.Open;
+  result := FDQuery.Fields[0].AsString;
 end;
 
 end.
