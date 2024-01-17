@@ -8,8 +8,6 @@ Middleware Used in Projetct
 </h2>
 horse/json ✔️	
 <br>
-horse/basic-auth✔️
-<br>
 horse/cors✔️	 
 <br>
 horse/stream✔️	    
@@ -20,8 +18,9 @@ horse/exception✔️
 <br>
 horse/logger✔️	    
 <br>
-horse/compression✔️	    
-  
+horse/compression✔️	
+<br>
+viniciussanchez/dataset-serialize ✔️	
 </h2>
 <br>
 <br>
