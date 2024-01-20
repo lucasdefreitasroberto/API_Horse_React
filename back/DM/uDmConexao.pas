@@ -24,7 +24,8 @@ uses
   FireDAC.Stan.Param,
   FireDAC.DatS,
   FireDAC.DApt.Intf,
-  FireDAC.DApt, FireDAC.Comp.DataSet;
+  FireDAC.DApt,
+  FireDAC.Comp.DataSet;
 
 type
   TDMConexao = class(TDataModule)
@@ -54,6 +55,7 @@ uses
 
 {$R *.dfm}
 
+procedure ConnectionDB(con: TFDConnection); stdcall; external 'DLL.Connection.dll' name 'ConnectionDB';
 { TDMConexao }
 {$REGION ' constructor'}
 constructor TDMConexao.Create;
@@ -68,27 +70,13 @@ var
   auxError: string;
 begin
 
-  const driver = 'FB';
-  const database = 'C:\Users\HAHA\Desktop\CRUD-Horse\backend\dados\PRODUCTS.FDB';
-  const password = 'masterkey';
-  const user = 'SYSDBA';
-  const protocol = 'LOCAL';
-  const server = '';
-  const port = 3050;
-
   if con.Connected then
     con.Close;
   con.Params.Clear;
 
   try
 
-    con.Params.Add('DriverID=' + driver);
-    con.Params.Add('Database=' + database);
-    con.Params.Add('Password=' + password);
-    con.Params.Add('User_Name=' + user);
-    con.Params.Add('Protocol=' + protocol);
-    con.Params.Add('Server=' + server);
-    con.Params.Add('Port=' + System.SysUtils.IntToStr(port));
+    ConnectionDB(con);
 
   except
 
@@ -100,10 +88,10 @@ begin
 
   end;
 end;
+
 {$ENDREGION}
 
 {$REGION ' Functions'}
-
 procedure TDMConexao.ExecuteCommand(SQL: string; NomeCampo: Integer; NomeParametroSQL: string);
 begin
 //

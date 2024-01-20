@@ -1,5 +1,0 @@
-object DmConexaxo: TDmConexaxo
-  OldCreateOrder = False
-  Height = 256
-  Width = 391
-end

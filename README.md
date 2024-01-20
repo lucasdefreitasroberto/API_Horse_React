@@ -24,14 +24,8 @@ viniciussanchez/dataset-serialize ✔️
 </h2>
 <br>
 <br>
-
-Construção de projeto full stack utilizando Delphi(Horse-back) e React(Client-Front); 
-Será feito um sistema completo com CRUD e Report;
-<br><br>
-Implementação da lógica de conexão com o banco de dados através de uma DLL, permitindo a configuração flexível dos parâmetros de conexão.
-<br><br>
-Esta DLL será utilizada para facilitar e centralizar a gestão de conexões em projetos que necessitam interagir com o banco de dados.
-![image](https://github.com/lucasdefreitasroberto/API_Horse_React/assets/68399974/6c7a8702-f55e-4afc-9fdd-dbd94d22110c)
+Building full stack project using Delphi(Horse-back) and React(Client-Front);
+A complete system will be made with CRUD and Report;
 
 <h2>Front-End</h2>
 
@@ -39,8 +33,7 @@ Esta DLL será utilizada para facilitar e centralizar a gestão de conexões em 
 
 <h2>DataBase</h2>
 
-![image](https://github.com/lucasdefreitasroberto/API_Horse_React/assets/68399974/53d04076-cd90-4c73-b46b-4ad805b72e3d)
-
+![image](https://github.com/lucasdefreitasroberto/API-REST-HORSE-AND-REACT/assets/68399974/26727de6-a3d5-4cc6-a5f5-20827866160d)
 
 <h2>Back-End</h2>
 
