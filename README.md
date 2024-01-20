@@ -39,7 +39,8 @@ Esta DLL será utilizada para facilitar e centralizar a gestão de conexões em 
 
 <h2>DataBase</h2>
 
-![image](https://github.com/lucasdefreitasroberto/API-REST-HORSE-AND-REACT/assets/68399974/26727de6-a3d5-4cc6-a5f5-20827866160d)
+![image](https://github.com/lucasdefreitasroberto/API_Horse_React/assets/68399974/53d04076-cd90-4c73-b46b-4ad805b72e3d)
+
 
 <h2>Back-End</h2>
 
