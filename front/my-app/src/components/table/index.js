@@ -7,7 +7,7 @@ export default class Table extends Component {
   };
 
   async componentDidMount() {
-    const response = await api.get("/product/");
+    const response = await api.get("/products/");
     this.setState({ _product: response.data });
     console.log(response.data);
   }
@@ -26,9 +26,9 @@ export default class Table extends Component {
           {this.state._product.map((produto) => {
             return (
               <tr>
-                <th scope="row" width="50" height="50">{produto.ID_PRODUTO}</th>
-                <td >{produto.DESCRICAO}</td>
-                <td >{"R$ "+produto.VALOR + ",00"}</td>
+                <th scope="row" width="50" height="50">{produto.id}</th>
+                <td >{produto.name}</td>
+                <td >{"R$ "+produto.price + ",00"}</td>
               </tr>
             );
           })}

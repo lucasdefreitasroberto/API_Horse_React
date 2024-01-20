@@ -101,11 +101,11 @@ begin
   THorse.Use(CORS);
 
   // Se não quiser usar Basic Authentication, Comente essa Use
-  THorse.Use(HorseBasicAuthentication(
-    function(const AUsername, APassword: string): Boolean
-    begin
-      Result := AUsername.Equals('admin') and APassword.Equals('admin');
-    end));
+//  THorse.Use(HorseBasicAuthentication(
+//    function(const AUsername, APassword: string): Boolean
+//    begin
+//      Result := AUsername.Equals('admin') and APassword.Equals('admin');
+//    end));
 
   THorse.Get('/',
     procedure(Req: THorseRequest; Res: THorseResponse; Next: TProc)
