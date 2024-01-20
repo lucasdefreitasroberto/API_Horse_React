@@ -13,17 +13,20 @@ uses
   Vcl.Forms,
   Vcl.Dialogs,
   Vcl.StdCtrls,
+  Vcl.AppEvnts,
+  Vcl.Menus,
+  Vcl.ExtCtrls,
+  Vcl.Buttons,
   Horse,
   Horse.Logger,
   Horse.Jhonson,
   Horse.HandleException,
   Horse.CORS,
-  Vcl.ExtCtrls,
-  Vcl.Buttons,
+  Horse.BasicAuthentication,
   System.JSON,
   ShellApi,
   uDMConexao,
-  uController.Products, Vcl.AppEvnts, Vcl.Menus;
+  uController.Products;
 
 type
   TFrmPrincipal = class(TForm)
@@ -59,10 +62,15 @@ implementation
 
 {$R *.dfm}
 
+{$REGION ' URL API CLICK'}
+
 procedure TFrmPrincipal.btnUrlClick(Sender: TObject);
 begin
   ShellExecute(Handle, 'open', 'http://localhost:9000/', nil, nil, SW_SHOWMAXIMIZED);
 end;
+{$ENDREGION}
+
+{$REGION ' Start API'}
 
 procedure TFrmPrincipal.btnStartClick(Sender: TObject);
 begin
@@ -83,12 +91,21 @@ begin
     VisualStop;
 
 end;
+{$ENDREGION}
 
+{$REGION ' Methods'}
 procedure TFrmPrincipal.methods;
 begin
 
   THorse.Use(Jhonson());
   THorse.Use(CORS);
+
+  // Se não quiser usar Basic Authentication, Comente essa Use
+  THorse.Use(HorseBasicAuthentication(
+    function(const AUsername, APassword: string): Boolean
+    begin
+      Result := AUsername.Equals('admin') and APassword.Equals('admin');
+    end));
 
   THorse.Get('/',
     procedure(Req: THorseRequest; Res: THorseResponse; Next: TProc)
@@ -103,11 +120,17 @@ begin
     end);
 
 end;
+{$ENDREGION}
+
+{$REGION ' Registry'}
 
 procedure TFrmPrincipal.Registry;
 begin
   uController.Products.Registry;
 end;
+{$ENDREGION}
+
+{$REGION ' VisualStop and Start'}
 
 procedure TFrmPrincipal.VisualStop;
 begin
@@ -117,6 +140,7 @@ begin
   btnUrl.Visible := not THorse.IsRunning;
   THorse.StopListen;
 end;
+
 procedure TFrmPrincipal.VisualStart;
 begin
   btnStart.Caption := 'Paused';
@@ -124,6 +148,9 @@ begin
   btnUrl.Enabled := THorse.IsRunning;
   btnUrl.Visible := THorse.IsRunning;
 end;
+{$ENDREGION}
+
+{$REGION ' Minimized and Maximized'}
 
 procedure TFrmPrincipal.aplctnvntsMinimize(Sender: TObject);
 begin
@@ -141,6 +168,9 @@ begin
   WindowState := wsNormal;
   Application.BringToFront();
 end;
+{$ENDREGION}
+
+{$REGION ' Menu Minimized'}
 
 procedure TFrmPrincipal.SairClick(Sender: TObject);
 begin
@@ -154,5 +184,7 @@ begin
   WindowState := wsNormal;
   Application.BringToFront();
 end;
+{$ENDREGION}
+
 end.
 

@@ -21,8 +21,6 @@ object FrmPrincipal: TFrmPrincipal
     Height = 107
     Align = alClient
     TabOrder = 0
-    ExplicitWidth = 244
-    ExplicitHeight = 129
     object btnUrl: TBitBtn
       Left = 65
       Top = 57
@@ -156,8 +154,6 @@ object FrmPrincipal: TFrmPrincipal
     Height = 54
     Align = alBottom
     TabOrder = 1
-    ExplicitTop = 129
-    ExplicitWidth = 244
     object lblStatus: TLabel
       Left = 19
       Top = 24
