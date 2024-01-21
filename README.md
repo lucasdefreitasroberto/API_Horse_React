@@ -25,6 +25,7 @@ viniciussanchez/dataset-serialize ✔️
 <br>
 <br>
 Construção de projeto full stack utilizando Delphi(Horse-back) e React(Client-Front);
+<br>
 Será feito um sistema completo com CRUD e Report;
 <br><br>
 Implementação da lógica de conexão com o banco de dados através de uma DLL, permitindo a configuração flexível dos parâmetros de conexão. 
