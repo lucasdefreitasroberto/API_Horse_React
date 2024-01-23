@@ -57,6 +57,7 @@ uses
 
 procedure ConnectionDB(con: TFDConnection); stdcall; external 'DLL.Connection.dll' name 'ConnectionDB';
 { TDMConexao }
+
 {$REGION ' constructor'}
 constructor TDMConexao.Create;
 begin

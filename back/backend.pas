@@ -23,6 +23,7 @@ uses
   Horse.HandleException,
   Horse.CORS,
   Horse.BasicAuthentication,
+  Horse.JWT,
   System.JSON,
   ShellApi,
   uDMConexao,
@@ -100,12 +101,25 @@ begin
   THorse.Use(Jhonson());
   THorse.Use(CORS);
 
-  // Se não quiser usar Basic Authentication, Comente essa Use
-//  THorse.Use(HorseBasicAuthentication(
-//    function(const AUsername, APassword: string): Boolean
-//    begin
-//      Result := AUsername.Equals('admin') and APassword.Equals('admin');
-//    end));
+  //THorseJWTConfig.New.SkipRoutes Passo as Rotas que serão ignoradas pela Autenticação JWT
+  THorse.Use(HorseJWT('MY-PASSWORD', THorseJWTConfig.New.SkipRoutes(['dev'])));
+
+
+  // Se não quiser usar Basic Authentication, Comente esse Middleware;
+  // SkipRoutes vai ignorar BasicAuthentication para rota passada;
+
+  // Lembrando que BasicAuthentication não e seguro, apenas para estudos,
+  // e facil decriptado pegando o valor do Authorization no Headers
+  // e jogando em sites como https://www.base64decode.org/
+  // Isso não acontece com JWT json web token
+
+  //  THorse.Use(HorseBasicAuthentication(
+  //    function(const AUsername, APassword: string): Boolean
+  //    begin
+  //      Result := AUsername.Equals('admin') and APassword.Equals('admin');
+  //    end, THorseBasicAuthenticationConfig.New.SkipRoutes(['/dev'])
+  //       //  THorseBasicAuthenticationConfig.New.Header('AAAA')
+  //    ));
 
   THorse.Get('/',
     procedure(Req: THorseRequest; Res: THorseResponse; Next: TProc)

@@ -2,6 +2,14 @@
 	"hash": "d41d8cd98f00b204e9800998ecf8427e",
 	"updated": "2024-01-15T15:20:05.1857099-03:00",
 	"installedModules": {
+		"github.com/andre-djsystem/hashlib4pascal": {
+			"name": "hashlib4pascal",
+			"version": "1.0.0",
+			"hash": "8528036224699ab509c7d8f31d691ffb",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
 		"github.com/arvanus/horse-exception-logger": {
 			"name": "horse-exception-logger",
 			"version": "0.0.5",
@@ -50,6 +58,14 @@
 			"failed": false,
 			"changed": false
 		},
+		"github.com/hashload/horse-jwt": {
+			"name": "horse-jwt",
+			"version": "2.0.14",
+			"hash": "d7433d10c0fbc71649ee260ef70b8928",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
 		"github.com/hashload/horse-logger": {
 			"name": "horse-logger",
 			"version": "2.0.7",
@@ -62,6 +78,14 @@
 			"name": "jhonson",
 			"version": "1.1.8",
 			"hash": "62d5763101381ad8aeec10773544b1dc",
+			"artifacts": {},
+			"failed": false,
+			"changed": false
+		},
+		"github.com/paolo-rossi/delphi-jose-jwt": {
+			"name": "delphi-jose-jwt",
+			"version": "v3.3.0",
+			"hash": "78976fbc6b834888f65b5a6b2f799ead",
 			"artifacts": {},
 			"failed": false,
 			"changed": false
