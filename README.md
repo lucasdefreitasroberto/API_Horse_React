@@ -97,24 +97,26 @@ Se você receber o JSON { "nome": "Lucas De Freitas Roberto" }, significa que a 
 
 **Dependecias:**
 
-		"github.com/arvanus/horse-exception-logger": "^0.0.5",
-		"github.com/hashload/handle-exception": "^0.1.9",
-		"github.com/hashload/horse": "^3.1.5",
-		"github.com/hashload/horse-basic-auth": "^1.2.3",
-		"github.com/hashload/horse-cors": "^1.0.6",
-		"github.com/hashload/horse-jwt": "^2.0.14",
-		"github.com/hashload/horse-logger": "^2.0.7",
-		"github.com/hashload/jhonson": "^1.1.8",
-		"github.com/viniciussanchez/dataset-serialize": "^v2.5.6"
+	"github.com/arvanus/horse-exception-logger": "^0.0.5",
+	"github.com/hashload/handle-exception": "^0.1.9",
+	"github.com/hashload/horse": "^3.1.5",
+	"github.com/hashload/horse-basic-auth": "^1.2.3",
+	"github.com/hashload/horse-cors": "^1.0.6",
+	"github.com/hashload/horse-jwt": "^2.0.14",
+	"github.com/hashload/horse-logger": "^2.0.7",
+	"github.com/hashload/jhonson": "^1.1.8",
+	"github.com/viniciussanchez/dataset-serialize": "^v2.5.6"
+
+
 ## Front-end
 
 **Dependências:**
 
-    "@testing-library/jest-dom": "^5.16.5",
-    "@testing-library/react": "^13.4.0",
-    "@testing-library/user-event": "^13.5.0",
-    "axios": "^1.4.0",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "react-scripts": "5.0.1",
-    "web-vitals": "^2.1.4"
+	"@testing-library/jest-dom": "^5.16.5",
+	"@testing-library/react": "^13.4.0",
+	"@testing-library/user-event": "^13.5.0",
+	"axios": "^1.4.0",
+	"react": "^18.2.0",
+	"react-dom": "^18.2.0",
+	"react-scripts": "5.0.1",
+	"web-vitals": "^2.1.4"
