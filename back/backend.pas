@@ -67,7 +67,7 @@ implementation
 
 procedure TFrmPrincipal.btnUrlClick(Sender: TObject);
 begin
-  ShellExecute(Handle, 'open', 'http://localhost:9000/', nil, nil, SW_SHOWMAXIMIZED);
+  ShellExecute(Handle, 'open', 'http://localhost:9000/dev', nil, nil, SW_SHOWMAXIMIZED);
 end;
 {$ENDREGION}
 
