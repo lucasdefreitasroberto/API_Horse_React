@@ -66,7 +66,9 @@ boss install
 ```
 
 Configuração dos parâmetros do banco de dados por meio da DLL:
-![image](https://github.com/lucasdefreitasroberto/API_Horse_React/assets/68399974/07ae0fbf-69ec-4ae8-8923-b0bfc9d6c7e2)
+<br>
+![image](https://github.com/lucasdefreitasroberto/API_Horse_React/assets/68399974/2f071bc3-6d10-4c63-ad20-e59fbb6b9d7a)
+
 ```shell
 Execute o projeto localizado em API_Horse_React\DLL connection\DLL.Connection.dproj
 Especifique os parâmetros de configuração conforme sua preferência.
