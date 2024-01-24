@@ -10,7 +10,7 @@ class Header extends React.Component {
           data-bs-theme="dark"
         >      
           <Menu />
-          <a class="navbar-brand"> <h2>Produto</h2></a>
+          <a class="navbar-brand"> <h2>Produto </h2><h1>&nbsp;</h1></a>
         </nav>
       </div>
     );

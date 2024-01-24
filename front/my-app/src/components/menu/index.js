@@ -4,7 +4,7 @@ class Menu extends React.Component {
   render() {
     return (
       <div>
-        <nav class="navbar bg-dark border-bottom border-bottom-dark">
+        <nav class="navbar bg-dark border-bottom-light">
           <div class="container-fluid">
             <button
               class="navbar-toggler"
