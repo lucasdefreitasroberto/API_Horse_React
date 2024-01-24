@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 
 class Menu extends React.Component {
   render() {
@@ -6,14 +6,6 @@ class Menu extends React.Component {
       <div>
         <nav class="navbar bg-dark border-bottom border-bottom-dark">
           <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-              <img
-                src="https://cdn.icon-icons.com/icons2/1860/PNG/512/analytics_118088.png"
-                width="50"
-                height="50"
-              ></img>
-              Menu
-            </a>
             <button
               class="navbar-toggler"
               type="button"
@@ -23,7 +15,10 @@ class Menu extends React.Component {
               aria-label="Toggle navigation"
             >
               <span class="navbar-toggler-icon"></span>
-            </button>
+            </button>          
+            {/* <a class="navbar-brand" href="" >
+              &nbsp; Menu
+            </a> */}
             <div
               class="offcanvas offcanvas-start"
               tabindex="-1"
@@ -31,9 +26,6 @@ class Menu extends React.Component {
               aria-labelledby="offcanvasNavbarLabel"
             >
               <div class="offcanvas-header">
-                <h5 class="offcanvas-title" id="offcanvasNavbarLabel">
-                  Menu...
-                </h5>
                 <button
                   type="button"
                   class="btn-close"
@@ -48,10 +40,34 @@ class Menu extends React.Component {
                       Principal
                     </a>
                   </li>
-                  <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">
+                  <li class="nav-item dropdown">
+                    <a
+                      class="nav-link dropdown-toggle"
+                      href="#"
+                      role="button"
+                      data-bs-toggle="dropdown"
+                      aria-expanded="false"
+                    >
                       Cadastro
                     </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a class="dropdown-item" href="#">
+                          Cliente
+                        </a>
+                      </li>
+                      <li>
+                        <a class="dropdown-item" href="#">
+                          Produtos
+                        </a>
+                      </li>
+
+                      <li>
+                        <a class="dropdown-item" href="#">
+                          Cidade
+                        </a>
+                      </li>
+                    </ul>
                   </li>
                   <li class="nav-item dropdown">
                     <a

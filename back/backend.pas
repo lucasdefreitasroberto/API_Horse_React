@@ -102,7 +102,7 @@ begin
   THorse.Use(CORS);
 
   //THorseJWTConfig.New.SkipRoutes Passo as Rotas que serão ignoradas pela Autenticação JWT
-  THorse.Use(HorseJWT('MY-PASSWORD', THorseJWTConfig.New.SkipRoutes(['dev'])));
+  //THorse.Use(HorseJWT('MY-PASSWORD', THorseJWTConfig.New.SkipRoutes(['dev'])));
 
 
   // Se não quiser usar Basic Authentication, Comente esse Middleware;

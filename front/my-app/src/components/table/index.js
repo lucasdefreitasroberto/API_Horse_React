@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import api from "../../services/api";
+import ButtonsGrid from "../table/buttonGrid";
 
 export default class Table extends Component {
   state = {
@@ -11,16 +12,16 @@ export default class Table extends Component {
     this.setState({ _product: response.data });
     console.log(response.data);
   }
-
+  
   render() {
-    return (
-      <table class="table table-striped table-bordered">
-        <thead class="table-warning">
+    return (      
+      <table class="table table-bordered table-striped table-hover">
+        <thead class="table-primary">
           <tr>
             <th scope="col">Código</th>
             <th scope="col">Descrição</th>
             <th scope="col">Valor</th>
-            <th scope="col"></th>
+            <th scope="col">Ação</th>
           </tr>
         </thead>
         <tbody>
@@ -30,8 +31,7 @@ export default class Table extends Component {
                 <th scope="row" width="50" height="50">{produto.id}</th>
                 <td >{produto.name}</td>
                 <td >{"R$ "+produto.price + ",00"}</td>
-                <td width="150" height="50"> <button> Editar</button> <button>Excluir</button>
-                </td>
+                <td width="150" height="50"> <ButtonsGrid/> </td>
               </tr>
             );
           })}
