@@ -50,7 +50,8 @@ Inicie a aplicação:
 npm start
 ```
 
-![image](https://github.com/lucasdefreitasroberto/API_Horse_React/assets/68399974/8f7bdb4e-fd23-4064-b52b-46798843f168)
+![image](https://github.com/lucasdefreitasroberto/API_Horse_React/assets/68399974/ac1faf33-33de-4743-a30b-dd63baa83ba9)
+
 
 
 
