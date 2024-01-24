@@ -51,8 +51,8 @@ npm start
 ```
 
 ![image](https://github.com/lucasdefreitasroberto/API_Horse_React/assets/68399974/ac1faf33-33de-4743-a30b-dd63baa83ba9)
-
-
+<br>
+![image](https://github.com/lucasdefreitasroberto/API_Horse_React/assets/68399974/b99d5edd-e4a5-455d-8e37-06a755805d54)
 
 
 <h2>Back-End</h2>
