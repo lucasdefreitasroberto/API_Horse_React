@@ -38,13 +38,14 @@ export default class NewRegister extends React.Component {
         {this.state.showFormProduct && (
           <div className="overlay">
             <div className="form-product-container">
-              <span className="close-btn" onClick={this.handleCloseFormProduct}>
+              {/* <span className="close-btn" onClick={this.handleCloseFormProduct}>
                 &times;                
-              </span>
+              </span> */}
               <FormProduct onCancel={this.handleCloseFormProduct} />
             </div>
           </div>
         )}
+        
       </div>
     );
   }

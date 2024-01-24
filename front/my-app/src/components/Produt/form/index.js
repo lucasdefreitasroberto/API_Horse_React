@@ -26,12 +26,16 @@ class FormProduct extends React.Component {
     try {
       const response = await api.post("/products", {
         name: productName,
-        value: productValue,
+        price: productValue,
       });
 
       console.log("Produto salvo:", response.data);
 
-      // Você pode adicionar lógica adicional aqui, como limpar o formulário, etc.
+      // Recarrega a página após o POST bem-sucedido
+      window.location.reload();
+
+      // Se necessário, você pode adicionar mais lógica aqui
+      // Por exemplo, chamar uma função que atualiza o estado ou realiza outras operações
 
       if (this.props.onCancel) {
         this.props.onCancel();
