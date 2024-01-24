@@ -1,36 +1,98 @@
 import React from "react";
+import PropTypes from "prop-types";
+import api from "../../../services/api";
 
 class FormProduct extends React.Component {
+  state = {
+    productName: "",
+    productValue: "",
+  };
+
+  handleInputChange = (event) => {
+    this.setState({
+      [event.target.name]: event.target.value,
+    });
+  };
+
+  handleSaveClick = async () => {
+    const { productName, productValue } = this.state;
+
+    // Verifica se os campos obrigatórios estão preenchidos
+    if (productName === '' || productValue === '') {
+      alert('Por favor, preencha todos os campos obrigatórios.');
+      return;  // Cancela a execução da função
+    }
+
+    try {
+      const response = await api.post("/products", {
+        name: productName,
+        value: productValue,
+      });
+
+      console.log("Produto salvo:", response.data);
+
+      // Você pode adicionar lógica adicional aqui, como limpar o formulário, etc.
+
+      if (this.props.onCancel) {
+        this.props.onCancel();
+      }
+    } catch (error) {
+      console.error("Erro ao salvar produto:", error);
+    }
+  };
+
+  handleCancelClick = () => {
+    if (this.props.onCancel) {
+      this.props.onCancel();
+    }
+  };
+
   render() {
     return (
-      <form className="card d-flex form-control mx-auto ">
-        <div class="card d-grid gap-20 col-30 mx-auto">
-          <div class="card-body">
-            <h3 class="card-title"><strong> Novo Produto</strong></h3>
-            <div class="row g-3">
-              <div class="col">
+      <form className="card d-flex form-control mx-auto">
+        <div className="card d-grid gap-20 col-30 mx-auto">
+          <div className="card-body">
+            <h3 className="card-title">
+              <strong> Novo Produto</strong>
+            </h3>
+            <div className="row g-3">
+              <div className="col form-row col-8">
                 <input
                   type="text"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Nome Produto"
                   aria-label="Nome Produto"
-                ></input>
+                  name="productName"
+                  onChange={this.handleInputChange}
+                  required
+                />
               </div>
-              <div class="col input-group mb-3">
-              <span class="input-group-text">R$</span>
+              <div className="col input-group mb-2">
+                <span className="input-group-text">R$</span>
                 <input
                   type="number"
-                  class="form-control"
+                  className="form-control"
                   placeholder="Valor"
                   aria-label="Valor"
-                ></input>
+                  name="productValue"
+                  onChange={this.handleInputChange}
+                  required
+                />
               </div>
-              <div class="d-flex ">
-                <button type="button" class="btn btn-primary">
+              <div className="d-flex gap-20 col-30 mx-auto">
+                <button
+                  type="button"
+                  className="btn btn-primary"
+                  onClick={this.handleSaveClick}
+                >
                   Salvar
                 </button>
-                &nbsp;&nbsp;
-                <button type="button" class="btn btn-secondary">
+                &nbsp;&nbsp; &nbsp;&nbsp;
+                <button
+                  type="button"
+                  className="btn btn-secondary"
+                  onClick={this.handleCancelClick}
+                >
                   Cancelar
                 </button>
               </div>
@@ -41,5 +103,9 @@ class FormProduct extends React.Component {
     );
   }
 }
+
+FormProduct.propTypes = {
+  onCancel: PropTypes.func.isRequired,
+};
 
 export default FormProduct;

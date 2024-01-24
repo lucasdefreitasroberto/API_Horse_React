@@ -15,7 +15,7 @@ class Menu extends React.Component {
               aria-label="Toggle navigation"
             >
               <span class="navbar-toggler-icon"></span>
-            </button>          
+            </button>
             {/* <a class="navbar-brand" href="" >
               &nbsp; Menu
             </a> */}

@@ -1,7 +1,7 @@
 import React from "react";
 import Pesquisa from "../search";
 import FormProduct from "../form";
-import "../../css/NewRegister.css"; // Importe o arquivo de estilo CSS para adicionar a classe overlay
+import "../../css/NewRegister.css";
 
 export default class NewRegister extends React.Component {
   constructor(props) {
@@ -35,17 +35,13 @@ export default class NewRegister extends React.Component {
           </div>
         </form>
 
-        {/* Overlay escuro e FormProduct */}
         {this.state.showFormProduct && (
           <div className="overlay">
             <div className="form-product-container">
-              <span
-                className="close-btn"
-                onClick={this.handleCloseFormProduct}
-              >
-                &times;
+              <span className="close-btn" onClick={this.handleCloseFormProduct}>
+                &times;                
               </span>
-              <FormProduct />
+              <FormProduct onCancel={this.handleCloseFormProduct} />
             </div>
           </div>
         )}
