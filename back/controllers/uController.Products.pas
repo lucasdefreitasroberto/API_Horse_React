@@ -50,13 +50,16 @@ end;
 procedure DoPostProduct(Req: THorseRequest; Res: THorseResponse; Next: TProc);
 var
   LService: TServicesProduct;
+
 begin
   LService := TServicesProduct.Create;
+
   try
     Res.Send<TJSONObject>(LService.Insert(Req.Body<TJSONObject>).ToJSONObject()).Status(THTTPStatus.Created);
   finally
     LService.Free;
   end;
+
 end;
 
 {$ENDREGION}

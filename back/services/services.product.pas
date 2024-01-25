@@ -85,7 +85,7 @@ begin
   FDQuery.Open();
 
   AProduct.AddPair('id', id.ToString);
-  FDQuery.LoadFromJSON(AProduct, False);
+  FDQuery.LoadFromJSON(UpCase(AProduct.ToString), False);
 end;
 {$ENDREGION}
 

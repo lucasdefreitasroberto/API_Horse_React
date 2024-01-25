@@ -17,16 +17,16 @@ class FormProduct extends React.Component {
   handleSaveClick = async () => {
     const { productName, productValue } = this.state;
 
-    // Verifica se os campos obrigatórios estão preenchidos
+    //Verifica se os campos obrigatórios estão preenchidos
     if (productName === '' || productValue === '') {
       alert('Por favor, preencha todos os campos obrigatórios.');
-      return;  // Cancela a execução da função
+      return;  //Cancela a execução da função
     }
 
     try {
-      const response = await api.post("/products", {
-        name: productName,
-        price: productValue,
+      const response = await api.post("/products", {        
+        name: productName.toUpperCase(),
+        price: productValue.toUpperCase(),
       });
 
       console.log("Produto salvo:", response.data);
